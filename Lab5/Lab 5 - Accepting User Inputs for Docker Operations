@@ -1,0 +1,70 @@
+Lab 5: Accepting User Inputs for Docker Operations
+
+Objective: Enhance user input handling in Bash for Docker-related tasks.
+
+Tasks:
+1. Write a script that accepts an image name as input.
+2. The script then pulls and runs the Docker image.
+
+Documentation:
+- Handling user input in Bash scripts.
+- Dynamically managing Docker containers based on user input
+
+
+Prerequisites:
+1- An AWS account with administrative access.
+2- Docker Deep Dive Course
+3- Bash Script Deep Dive Course
+4- Complete Previous labs
+
+
+Implementation Documentation:
+
+1. Introduction
+
+In this lab, we will create a Bash script that accepts user input for Docker-related tasks. Specifically, we will allow the user to provide the name of a Docker image, and the script will then pull and run that image.
+
+2. Script Implementation
+
+Here's the Bash script that accomplishes the tasks:
+
+
+#!/bin/bash
+
+# Task 1: Accept an image name as input
+read -p "Enter the name of the Docker image: " image_name
+
+# Task 2: Pull and run the Docker image
+echo "Pulling the Docker image: $image_name"
+docker pull $image_name
+
+echo "Running the Docker container based on $image_name"
+docker run -it --rm $image_name
+
+Explanation of the Script
+
+We start by using the read command to accept user input. The -p flag is used to provide a prompt message, asking the user to enter the name of the Docker image.
+
+The user enters the image name, which is stored in the image_name variable.
+
+Next, we use docker pull to pull the specified Docker image. This command downloads the image from a Docker registry if it's not already available locally.
+
+After pulling the image, we use docker run to run a container based on the provided image. The -it flags are used to make the container interactive, and --rm is used to automatically remove the container when it exits.
+
+3. Running the Script
+
+To run the script, follow these steps:
+
+Save the script in a .sh file, e.g., docker_operations.sh.
+
+Make the script executable by running chmod +x docker_operations.sh.
+
+Execute the script by running ./docker_operations.sh.
+
+When prompted, enter the name of the Docker image you want to pull and run.
+
+4. Conclusion
+
+In this lab, we have created a Bash script that accepts user input for Docker operations. This script enhances user interaction by allowing them to specify the Docker image they want to work with dynamically.
+
+By following the steps provided in the documentation, you can easily use this script to pull and run Docker images of your choice, making Docker operations more user-friendly and flexible.
